@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<span th:text="'Year: ' + ${year}"></span>
+<span th:text="'Month: ' + ${month}"></span>
+<table>
+    <thead>
+    <tr>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="week : ${weeks}">
+        <td th:each="day : ${week}" th:text="${day}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
