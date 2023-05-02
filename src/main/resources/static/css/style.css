@@ -1,0 +1,33 @@
+table {
+    border-collapse: collapse;
+}
+
+td {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    padding: 0;
+}
+
+.cell {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 10px;
+}
+
+a:visited {
+    color: black;
+}
+
+td:hover {
+    cursor: pointer;
+    background-color: lightgray;
+}

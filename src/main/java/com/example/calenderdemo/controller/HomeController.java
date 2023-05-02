@@ -20,8 +20,8 @@ public class HomeController {
     public String index (Model model){
 
         // Udskiftes med Parameters fra HTML siden @RequestParam
-        int monthInput = 2;
-        int yearInput = 2023;
+        int monthInput = 4;
+        int yearInput = 2024;
 
         Calendar calendar = Calendar.getInstance();
         List<List<Integer>> weeks = new ArrayList<>();
@@ -33,7 +33,13 @@ public class HomeController {
         * First Day of Week sætter Mandag til at være første dag på ugen, da Søndag er standard
         * */
         calendar.set(Calendar.YEAR, yearInput);
-        calendar.set(Calendar.MONTH, monthInput - 1);
+
+        if (monthInput == 1) {
+            calendar.set(Calendar.MONTH, Calendar.JANUARY);
+        } else {
+            calendar.set(Calendar.MONTH, monthInput - 1);
+        }
+
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         calendar.setFirstDayOfWeek(Calendar.MONDAY);
 
@@ -83,6 +89,17 @@ public class HomeController {
 
         model.addAttribute("weeks", weeks);
 
-        return "index";
+        return "home/index";
+    }
+
+
+    @GetMapping("/dayView")
+    public String showDayView(){
+        return "home/dayView";
+    }
+
+    @GetMapping("/weekView")
+    public String showWeekView(){
+        return "home/weekView";
     }
 }

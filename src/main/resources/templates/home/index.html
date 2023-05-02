@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+<span th:text="'Year: ' + ${year}"></span>
+<span th:text="'Month: ' + ${month}"></span>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="week : ${weeks}">
+            <td><a href="/weekView">WeekView</a></td>
+            <td th:each="day : ${week}">
+                <div class="cell">
+                    <a th:href="@{/dayView}" th:text="${day}"></a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
